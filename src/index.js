@@ -1,5 +1,4 @@
 import { h, cloneElement, createElement, Component, toChildArray, createContext } from 'preact';
-import { useContext } from 'preact/hooks';
 import { exec, prepareVNodeForRanking, assign, pathRankSort } from './util';
 
 const RouterContext = createContext({});
@@ -9,10 +8,6 @@ let customHistory = null;
 const ROUTERS = [];
 
 const EMPTY = {};
-
-function useRouter() {
-	return [useContext(RouterContext), route];
-}
 
 function setUrl(url, type='push') {
 	if (customHistory && customHistory[type]) {
@@ -266,5 +261,5 @@ const Link = (props) => (
 
 const Route = props => createElement(props.component, props);
 
-export { getCurrentUrl, route, Router, Route, Link, exec, useRouter };
+export { getCurrentUrl, route, Router, Route, Link, exec, RouterContext };
 export default Router;

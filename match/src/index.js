@@ -1,5 +1,10 @@
 import { h } from 'preact';
-import { Link as StaticLink, exec, useRouter } from 'preact-router';
+import { useContext } from 'preact/hooks';
+import { Link as StaticLink, exec, RouterContext, route } from 'preact-router';
+
+export function useRouter() {
+	return [useContext(RouterContext), route];
+}
 
 export function Match(props) {
 	const [{ url, path }] = useRouter();

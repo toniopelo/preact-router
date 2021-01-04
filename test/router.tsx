@@ -1,5 +1,6 @@
 import { h, render, Component, FunctionalComponent } from 'preact';
-import Router, { Route, RoutableProps, useRouter } from '../';
+import Router, { Route, RoutableProps } from '../';
+import { useRouter } from '../match';
 
 class ClassComponent extends Component<{}, {}> {
     render() {

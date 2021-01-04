@@ -1,4 +1,5 @@
-import { Router, Link, route, useRouter } from '../src';
+import { Router, Link, route } from '../src';
+import { useRouter } from '../match/src'
 import { h, render } from 'preact';
 import { toBeCloneOf } from './utils/assert-clone-of';
 
@@ -287,9 +288,10 @@ describe('preact-router', () => {
 		let scratch;
 		let router;
 
-		it('should return route() as first param', () => {
+		it('should return route() as tuple second value', () => {
 			const [, routeFromHook] = useRouter()
 			expect(routeFromHook).toBeInstanceOf(Function)
+			console.log({routeFromHook})
 			expect(routeFromHook).toBe(route)
 		})
 
